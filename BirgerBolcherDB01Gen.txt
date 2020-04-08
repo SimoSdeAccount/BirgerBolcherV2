@@ -1,0 +1,26 @@
+CREATE TABLE SmagType (
+TypeNavn nvarchar(50) primary key not null
+)
+CREATE TABLE Styrke (
+StyrkeNavn nvarchar(50) primary key not null
+)
+CREATE TABLE Surhed (
+SurhedNavn nvarchar(50) primary key not null
+)
+CREATE TABLE Farve (
+FarveNavn nvarchar(50) primary key not null
+)
+CREATE TABLE Bolche (
+Id int identity(1,1) primary key not null,
+Navn nvarchar(50) not null,
+RåvarePris int not null,
+Vægt int not null,
+Smag nvarchar(50) not null,
+Styrke nvarchar(50) not null,
+Surhed nvarchar(50) not null,
+Farve nvarchar(50) not null,
+FOREIGN KEY (Smag) REFERENCES SmagType(TypeNavn),
+FOREIGN KEY (Styrke) REFERENCES Styrke(StyrkeNavn),
+FOREIGN KEY (Surhed) REFERENCES Surhed(SurhedNavn),
+FOREIGN KEY (Farve) REFERENCES Farve(FarveNavn)
+)
